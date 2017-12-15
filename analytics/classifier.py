@@ -1,7 +1,6 @@
 from math import ceil, floor
 import pickle
 
-from elm import ELMClassifier
 import IPython
 import matplotlib
 matplotlib.use('TKAgg')
@@ -38,11 +37,6 @@ from sklearn.svm import LinearSVC, SVC
 from sklearn.tree import DecisionTreeClassifier
 
 
-class ELMWrapper(ELMClassifier):
-    def predict_proba(self, x):
-        return self.decision_function(x)
-
-
 class CustomMultiClassVoteClassifier(object):
     def __init__(self, estimators):
         self.classifiers = estimators
@@ -53,7 +47,7 @@ class CustomMultiClassVoteClassifier(object):
 
     def predict(self, x):
         """
-        Allow the ELM to be solely responsible for predicting DBLA
+        Allow the ETC to be solely responsible for predicting DBLA
         and then allow the other predictors to come to a conclusion on BSA
         the majority vote on BSA will win.
         """
@@ -61,7 +55,7 @@ class CustomMultiClassVoteClassifier(object):
         bs_predictors = []
         for cls in self.classifiers:
             predictions = Series(cls[1].predict(x))
-            if cls[0] != "elm" or cls[0] == "etc":
+            if cls[0] == "etc":
                 predictions.loc[predictions[predictions == 1]] = 0
                 bs_predictors.append(predictions)
             else:
@@ -76,7 +70,6 @@ class CustomMultiClassVoteClassifier(object):
 CLASSIFIER_DICT = {
     "ada": AdaBoostClassifier,
     "agg": AgglomerativeClustering,
-    "elm": ELMWrapper,
     "gbrt": GradientBoostingClassifier,
     "means": MeanShift,
     "aff": AffinityPropagation,
@@ -185,18 +178,6 @@ def nn_cross_validation(x_train, y_train):
     return clf.best_estimator_
 
 
-def elm_cross_validation(x_train, y_train):
-    params = {
-        "n_hidden": [10, 20, 30, 40, 50, 60, 100, 200, 300, 500, 600, 700, 1000],
-        "activation_func": ["sigmoid"]
-    }
-    cv = KFold(n_splits=10)
-    clf = GridSearchCV(ELMClassifier(random_state=1), params, cv=cv)
-    clf.fit(x_train, y_train)
-    print("Best params {}".format(clf.best_params_))
-    return clf.best_estimator_
-
-
 def etc_cross_validation(x_train, y_train):
     # ETC can perform very well on DBL w/ recall when max_depth is set very low
     # @ max_depth of 2, I got sen=1
@@ -287,7 +268,6 @@ class Classifier(object):
             "random_state": 1,
             "hidden_layer_sizes": (100, 20, 50),
         }
-        elm_params = {"random_state": 1, "n_hidden": 700, "activation_func": "sigmoid", "binarizer": LabelBinarizer()}
         etc_params = {
             "n_estimators": 50,
             "criterion": "gini",
@@ -304,7 +284,6 @@ class Classifier(object):
             #
             # maybe its the .01 winsorizor because regardless of hidden count
             # from 200 on up im gettin >.96
-            "elm": elm_params,
             "gbrt": gbrt_params,
             "means": {"bandwidth": args.bandwidth, "cluster_all": args.cluster_all},
             "spec": {"n_clusters": args.n_clust},
@@ -357,7 +336,6 @@ class Classifier(object):
                 "estimators": [
                     ("rf", RandomForestClassifier(**rf_params)),
                     ("gbrt", GradientBoostingClassifier(**gbrt_params)),
-                    ("elm", ELMWrapper(**elm_params)),
                     ("nn", MLPClassifier(**nn_params)),
                 ],
             },
@@ -368,7 +346,6 @@ class Classifier(object):
             "svm": svm_cross_validation,
             "rf": rf_cross_validation,
             "nn": nn_cross_validation,
-            "elm": elm_cross_validation,
             "gbrt": gbrt_cross_validation,
             "etc": etc_cross_validation,
         }.get(args.classifier, lambda x, y: None)

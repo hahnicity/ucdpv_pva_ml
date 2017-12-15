@@ -1,4 +1,7 @@
-# CTSC Grant Project
+# Using Machine Learning to Detect Patient Ventilator Asynchrony
+
+## Paper
+Is in submission currently
 
 ## Setup
 

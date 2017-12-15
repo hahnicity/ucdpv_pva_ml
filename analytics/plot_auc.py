@@ -288,7 +288,7 @@ def multi_plot(processed_results, x_lab, plot_title, legend_loc, png, binary_pva
 def classifier_diff_plot(processed_results, x_lab, plot_title, legend_loc, png, binary_pva):
     x = processed_results.classifier.unique()
     classes = processed_results.async_class.unique()
-    xticks_map = {"nn": "MLP", "etc": "ERTC", "gbrt": "GBC", "rf": "RF", "ovr_rf": "OVR", "elm": "ELM", "vote": "Static Voting", "cust_vote": "Custom Ensemble", "soft_vote": "Ensemble"}
+    xticks_map = {"nn": "MLP", "etc": "ERTC", "gbrt": "GBC", "rf": "RF", "ovr_rf": "OVR", "vote": "Static Voting", "cust_vote": "Custom Ensemble", "soft_vote": "Ensemble"}
     if binary_pva:
         class_map = {0: "Non-PVA", 1: binary_pva}
         if binary_pva == "BSA":
