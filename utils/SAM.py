@@ -2,7 +2,7 @@
 SAM
 ~~~
 
-Supportive functions for algorithms in TOR
+Supportive functions for algorithms
 """
 from __future__ import division
 from copy import copy
@@ -14,11 +14,6 @@ import numpy as np
 from scipy.integrate import simps
 from scipy.stats import linregress
 from pandas import DataFrame
-
-from utilikilt.integrate import fast_integrate
-
-# XXX remove this
-__version__="1.2.4"
 
 
 def find_mean_flow_from_pef(flow, pef, t_offset):

@@ -37,7 +37,6 @@ from sklearn.preprocessing import LabelBinarizer
 from sklearn.svm import LinearSVC, SVC
 from sklearn.tree import DecisionTreeClassifier
 
-import reverse_collate
 
 class ELMWrapper(ELMClassifier):
     def predict_proba(self, x):

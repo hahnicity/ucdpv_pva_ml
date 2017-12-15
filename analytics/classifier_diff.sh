@@ -28,6 +28,7 @@ exec() {
     else
         local fdb=--${fdb_type}
     fi
+    echo "python learn.py --scaler $scaler -c $classifier -o results-${classifier}-`basename ${pickle_file}`-classifier-analysis-${feature_set}-${n_folds}-${fdb_type}.csv --write-results -p $pickle_file  --n-estimators 50 --winsorize .01 ${fdb} ${fdb_val} cross_patient_kfold --folds $n_folds --with-smote"
     python learn.py --scaler $scaler -c $classifier -o results-${classifier}-`basename ${pickle_file}`-classifier-analysis-${feature_set}-${n_folds}-${fdb_type}.csv --write-results -p $pickle_file  --n-estimators 50 --winsorize .01 ${fdb} ${fdb_val} cross_patient_kfold --folds $n_folds --with-smote
     if [[ $? -eq 1 ]]; then
         return 1
@@ -40,7 +41,7 @@ if [[ $run_me = '--run' ]]; then
     do
         echo "execute on classifier $classifier"
         {
-            exec $classifier $file >& /dev/null
+            exec $classifier $file #>& /dev/null
         } || {
             continue
         }

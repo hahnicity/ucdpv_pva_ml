@@ -20,11 +20,11 @@
 ./chi2_cross_patient_optimum_analysis.sh BSA rf --run df/bs-retro-2017-04-28.pickle "Retrospective" 32
 
 # use chi2 retrospective features to determine what we can use computationally
-./classifier_diff.sh DTA --run df/dbl-retrochi2-2017-05-29.pickle "Retrospective Chi-square" fdb1
-./classifier_diff.sh BSA --run df/bs-retro-2017-04-28.pickle "Retrospective Chi-square"
+./classifier_diff.sh DTA --run df/dbl-retrochi2-2017-05-29.pickle "Retrospective_Chi-square" fdb1
+./classifier_diff.sh BSA --run df/bs-retro-2017-04-28.pickle "Retrospective_Chi-square"
 
 # use expert features for dbla
-./classifier_diff.sh DTA --run df/dbl-retrolowprec-2017-04-28.pickle "Retrospective Expert" fdb1
+./classifier_diff.sh DTA --run df/dbl-retrolowprec-2017-04-28.pickle "Retrospective_Expert" fdb1
 
 # experiments for the multi class classifier
 ./classifier_diff_undersample.sh "DTA+BSA" --run df/bsdblfdb-expert-chi2-5-2017-06-26.pickle Expert+Chi-square fdb1

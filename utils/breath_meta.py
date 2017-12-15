@@ -14,7 +14,7 @@ from scipy import var
 from scipy.integrate import simps
 
 from utils import SAM
-from utils.constants import EXPERIMENTAL_META_HEADER, IN_DATETIME_FORMAT, META_HEADER, OUT_DATETIME_FORMAT, SBT_META_HEADER
+from utils.constants import EXPERIMENTAL_META_HEADER, IN_DATETIME_FORMAT, META_HEADER, OUT_DATETIME_FORMAT
 from utils.detection import detect_version_v2
 from utils.raw_utils import extract_raw
 

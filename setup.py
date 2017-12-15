@@ -16,6 +16,7 @@ setup(name='b2caim1',
           'prettytable',
           'scipy',
           'scikit-learn',
+          'tabulate',
       ],
       entry_points={
           'console_scripts': [
