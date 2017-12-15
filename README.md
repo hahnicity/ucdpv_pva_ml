@@ -1,2 +1,15 @@
-# ucdpv_pva_ml
-Machine Learning Model Construction for Detecting Patient Ventilator Asynchrony
+# CTSC Grant Project
+
+## Setup
+
+    virtualenv venv
+    pip install -e .
+
+## Analytics
+If you are interested in reproducing our results please contact lab PI Jason Adams
+for access to our dataset. Contact `jyadams@ucdavis.edu`.
+
+After obtaining the dataset you can reproduce by:
+
+    cd analytics
+    ./experiments.sh

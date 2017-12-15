@@ -2,6 +2,15 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.sw[op]
+
+# folders
+cohort_fa/
+cohort_validation/
+cohort_derivation/
+results/
+tables/
+df/
 
 # C extensions
 *.so
