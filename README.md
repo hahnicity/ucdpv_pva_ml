@@ -1,7 +1,7 @@
 # Using Machine Learning to Detect Patient Ventilator Asynchrony
 
 ## Paper
-Is in submission currently
+Accepted for publication to Methods of Information in Medicine.
 
 ## Setup
 
