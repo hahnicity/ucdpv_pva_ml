@@ -5,6 +5,7 @@ __pycache__/
 *.sw[op]
 *.png
 *.xcf
+*~\$*.docx
 
 # folders
 cohort_fa/
