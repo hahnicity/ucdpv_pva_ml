@@ -6,10 +6,10 @@ import numpy as np
 import pandas as pd
 from scipy.integrate import simps
 
-from utils.breath_meta import get_file_experimental_breath_meta
-from utils.raw_utils import extract_raw
-from utils.clear_null_bytes import clear_descriptor_null_bytes
-from utils.cut_breath_section import cut_breath_section
+from ventmap.breath_meta import get_file_experimental_breath_meta
+from ventmap.raw_utils import extract_raw
+from ventmap.clear_null_bytes import clear_descriptor_null_bytes
+from ventmap.cut_breath_section import cut_breath_section
 
 FA_COHORT_DIR = ["cohort_fa"]
 DERIVATION_COHORT_FILES = ["cohort_derivation"]
@@ -226,8 +226,7 @@ def do_basket_function(n_regions, feature_func, gold_stnd_func):
         selection = cut_breath_section(
             f, pt_observations['BN'].min(), pt_observations['BN'].max()
         )
-        all_metadata = get_file_experimental_breath_meta(selection)
-        all_metadata = pd.DataFrame(all_metadata[1:], columns=all_metadata[0])
+        all_metadata = get_file_experimental_breath_meta(selection, to_data_frame=True)
         # implement rounding
         all_metadata = all_metadata.round(2)
         all_metadata = all_metadata.round({"tvi": 1, "tve": 1})

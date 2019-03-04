@@ -3,7 +3,6 @@ import pickle
 
 import IPython
 import matplotlib
-matplotlib.use('TKAgg')
 from matplotlib.colors import LinearSegmentedColormap
 import matplotlib.pyplot as plt
 import numpy as np

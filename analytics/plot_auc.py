@@ -4,7 +4,6 @@ from itertools import cycle
 import re
 
 import matplotlib
-matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd

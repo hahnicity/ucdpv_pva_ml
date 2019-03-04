@@ -1,6 +1,6 @@
 from warnings import warn
 
-from imblearn.over_sampling.smote import SMOTE
+from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import RandomUnderSampler
 import numpy as np
 from pandas import DataFrame, Series

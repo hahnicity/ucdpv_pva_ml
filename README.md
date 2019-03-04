@@ -5,7 +5,10 @@ Accepted for publication to Methods of Information in Medicine.
 
 ## Setup
 
-    virtualenv venv
+Use anaconda for the primary setup, and then setuptools for the rest
+
+    # make sure to install your matplotlib drivers. I use pyqt, but maybe you use something else.
+    conda install pandas scipy numpy matplotlib scikit-learn pyqt
     pip install -e .
 
 ## Analytics

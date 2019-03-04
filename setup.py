@@ -7,7 +7,6 @@ setup(name='b2caim1',
       version="1.0",
       packages=find_packages(),
       install_requires=[
-          'elm',
           'imbalanced-learn',
           'ipython',
           'matplotlib',
@@ -17,6 +16,7 @@ setup(name='b2caim1',
           'scipy',
           'scikit-learn',
           'tabulate',
+          'ventmap',
       ],
       entry_points={
           'console_scripts': [
