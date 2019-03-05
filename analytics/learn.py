@@ -479,8 +479,8 @@ def perform_space_replacement(df):
 def main():
     async_dict= {
         "dbl": get_binary_target_basic_dbl_trigger_data,
-        "dbl_retro": get_binary_target_retrospective_dbl_trigger_data,
         "dbl_deriv_valid": get_binary_target_deriv_valid_dbl_trigger_data,
+        "dbl_deriv_valid_retro": get_binary_target_retrospective_dbl_trigger_data,
         "fa": get_binary_target_fa_patient_data,
         "bs": get_binary_target_bs_patient_data,
         "bs_deriv_valid": get_binary_target_deriv_valid_bs_patient_data,

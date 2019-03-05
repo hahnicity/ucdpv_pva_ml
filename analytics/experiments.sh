@@ -4,22 +4,22 @@
 
 ## create datasets
 mkdir df/
-python learn.py --feature-type metadata --async-type bs -npf bs-metadata simple
-python learn.py --feature-type metadata --async-type dbl -npf dbl-metadata simple
+python learn.py --feature-type metadata --async-type bs_deriv_valid -npf bs-metadata simple
+python learn.py --feature-type metadata --async-type dbl_deriv_valid -npf dbl-metadata simple
 
-python learn.py --feature-type bs_chi2 --async-type bs -npf bs-chi2 simple
-python learn.py --feature-type dbl_chi2 --async-type dbl -npf dbl-chi2 simple
+python learn.py --feature-type bs_chi2 --async-type bs_deriv_valid -npf bs-chi2 simple
+python learn.py --feature-type dbl_chi2 --async-type dbl_deriv_valid -npf dbl-chi2 simple
 
-python learn.py --feature-type bs_curated --async-type bs -npf bs-curated simple
-python learn.py --feature-type dbl_curated --async-type dbl -npf dbl-curated simple
+python learn.py --feature-type bs_curated --async-type bs_deriv_valid -npf bs-curated simple
+python learn.py --feature-type dbl_no_retro_curated --async-type dbl_deriv_valid -npf dbl-curated simple
 
-python learn.py --feature-type dbl_retro --async-type dbl -npf dbl-retro simple
-python learn.py --feature-type dbl_retro --async-type bs -npf bs-retro simple
+python learn.py --feature-type dbl_retro --async-type dbl_deriv_valid_retro -npf dbl-retro simple
+python learn.py --feature-type dbl_retro --async-type bs_deriv_valid -npf bs-retro simple
 
-python learn.py --feature-type dbl_retro_chi2 --async-type dbl -npf dbl-retrochi2 simple
-python learn.py --feature-type dbl_retro_chi2 --async-type bs -npf bs-retrochi2 simple
+python learn.py --feature-type dbl_retro_chi2 --async-type dbl_deriv_valid_retro -npf dbl-retrochi2 simple
+python learn.py --feature-type dbl_retro_chi2 --async-type bs_deriv_valid -npf bs-retrochi2 simple
 
-python learn.py --feature-type retro_stripped_low-prec  --async-type dbl -npf dbl-retrolowprec simple
+python learn.py --feature-type retro_stripped_low_prec  --async-type dbl_deriv_valid_retro -npf dbl-retrolowprec simple
 
 python learn.py --feature-type retro_stripped_expert_plus_chi2_5  --async-type bs_dbl_retro_fdb_deriv_val -npf bsdblfdb-expert-chi2-5 simple
 
