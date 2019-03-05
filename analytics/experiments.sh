@@ -7,11 +7,11 @@ mkdir df/
 python learn.py --feature-type metadata --async-type bs -npf bs-metadata simple
 python learn.py --feature-type metadata --async-type dbl -npf dbl-metadata simple
 
-python learn.py --feature-type bs_chi2 --async-type bs -npf bs-chi2
-python learn.py --feature-type dbl_chi2 --async-type dbl -npf dbl-chi2
+python learn.py --feature-type bs_chi2 --async-type bs -npf bs-chi2 simple
+python learn.py --feature-type dbl_chi2 --async-type dbl -npf dbl-chi2 simple
 
-python learn.py --feature-type bs_curated --async-type bs -npf bs-curated
-python learn.py --feature-type dbl_curated --async-type dbl -npf dbl-curated
+python learn.py --feature-type bs_curated --async-type bs -npf bs-curated simple
+python learn.py --feature-type dbl_curated --async-type dbl -npf dbl-curated simple
 
 python learn.py --feature-type dbl_retro --async-type dbl -npf dbl-retro simple
 python learn.py --feature-type dbl_retro --async-type bs -npf bs-retro simple
