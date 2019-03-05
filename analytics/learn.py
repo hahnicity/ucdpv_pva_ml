@@ -533,7 +533,6 @@ def main():
         "retro_stripped_expert_plus_chi2": get_retro_stripped_expert_plus_chi2,
         "retro_stripped_expert_plus_chi2_2": get_retro_stripped_expert_plus_chi2_2,
         "retro_stripped_expert_plus_chi2_3": get_retro_stripped_expert_plus_chi2_3,
-        # this is the one currently on paper
         "retro_stripped_expert_plus_chi2_4": get_retro_stripped_expert_plus_chi2_4,
         # this is currently highest performer
         "retro_stripped_expert_plus_chi2_5": get_retro_stripped_expert_plus_chi2_5,

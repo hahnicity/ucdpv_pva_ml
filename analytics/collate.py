@@ -226,7 +226,8 @@ def do_basket_function(n_regions, feature_func, gold_stnd_func):
         selection = cut_breath_section(
             f, pt_observations['BN'].min(), pt_observations['BN'].max()
         )
-        all_metadata = get_file_experimental_breath_meta(selection, to_data_frame=True)
+        all_metadata = get_file_experimental_breath_meta(selection)
+        all_metadata = pd.DataFrame(all_metadata[1:], columns=all_metadata[0])
         # implement rounding
         all_metadata = all_metadata.round(2)
         all_metadata = all_metadata.round({"tvi": 1, "tve": 1})
