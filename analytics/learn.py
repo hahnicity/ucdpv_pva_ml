@@ -571,7 +571,8 @@ def main():
             pass
 
         x_train = perform_space_replacement(x_train)
-        x_test = perform_space_replacement(x_test)
+        if x_test != []:
+            x_test = perform_space_replacement(x_test)
         if args.selected_features:
             x_train = x_train[args.selected_features]
             x_test = x_test[args.selected_features]

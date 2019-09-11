@@ -1,4 +1,5 @@
 from glob import glob
+from io import open
 from os.path import dirname, join
 import re
 
@@ -222,7 +223,7 @@ def do_basket_function(n_regions, feature_func, gold_stnd_func):
     for file in files:
         patient = file.split("/")[-2]
         pt_observations = observations[observations['patient'] == patient]
-        f = clear_descriptor_null_bytes(open(file))
+        f = clear_descriptor_null_bytes(open(file, encoding='ascii', errors='ignore'))
         selection = cut_breath_section(
             f, pt_observations['BN'].min(), pt_observations['BN'].max()
         )
